@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Rigidbody rb;
-    private float reset = 5;
+    private float reset = 6;
     private float newtime;
 
 
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         reset -= Time.deltaTime;
         if (reset > 0)
         {     
-            transform.GetComponent<Renderer>().material.color = Color.Lerp(basicColor, hoverColor, (Time.time-newtime)/5);
+            transform.GetComponent<Renderer>().material.color = Color.Lerp(basicColor, hoverColor, (Time.time-newtime)/6);
             if (Vector3.Distance(transform.position, target.transform.position) < seeDistance)
             {
                 transform.LookAt(target.transform);
@@ -54,9 +54,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Food")
         {
-            reset = 5;
+            reset = 6;
             newtime = Time.time;
-            print(newtime);
             Instantiate(gameObject);
         }
     }

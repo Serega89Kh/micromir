@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class Food : MonoBehaviour
 {
-    public static int CountClones = 1;
+    private static float CountClones = 1;
 
     void Start()
     {
@@ -18,9 +18,9 @@ public class Food : MonoBehaviour
 
         if (CountClones > 0)
         {
-            CountClones--;
-            var randomPosition = new Vector3(Random.Range(-100, 100), 4, Random.Range(-100, 100));
+            var randomPosition = new Vector3(Random.Range(-125, 125), 4, Random.Range(-125, 125));
             var clone = Instantiate(gameObject, randomPosition, Quaternion.identity) as GameObject;
+            CountClones--;
         }
     }
     private void OnCollisionEnter(Collision collision)
